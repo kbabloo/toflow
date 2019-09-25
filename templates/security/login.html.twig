@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/login-style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% endblock %}
+{% block body %}
+<div class="wrapper">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a href>
+                <i class="fa fa-twitter" align="center" style="font-size:20px; color:#38A1F3;"></i> Home
+            </a>
+            <a>
+                About
+            </a>
+            <div class="eng">
+                    English
+            </div>
+            <div class="lang">
+                    Language:
+            </div>
+        </div>
+    </div>
+    <div class="login-form">
+        <div class="login-form-inner">
+
+            <h2>Log in to Twitter</h2>
+
+            {% if error %}
+                <div class="error">{{ error.messageKey }}</div>
+            {% endif %}
+            
+            <form method="POST" action="{{ path('login') }}">
+                {# {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %} #}
+
+                <div class="login-username">
+                    <input type="text" value="{{ last_username }}" name="_username" id="inputEmail" class="form-control" placeholder="username" required autofocus>
+                </div>
+                
+                <div class="login-password">
+                    <input type="password" name="_password" id="inputPassword" class="form-control" placeholder="Password" required>
+                </div>
+
+                {#
+                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                    See https://symfony.com/doc/current/security/remember_me.html
+
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Remember me
+                        </label>
+                    </div>
+                #}
+
+                <button class="btn btn-lg btn-primary" type="submit">
+                    Log in
+                </button>
+                <input type="checkbox" name="_remember_me" checked="checked">Remember me
+                <span class="seperated">•</span>
+                <a href="#" class="forgot" rel="noopner">Forget Password?</a>
+            </form>
+        </div>
+        <div class="new-user">
+            <div class="new-user-inner">
+                <p class="signup-helper">
+                    New to Twitter?
+                    <a href="{{path('user_registration')}}">Sign up now >></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

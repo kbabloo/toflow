@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block title %} Twitter. It's what’s happening. {% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/home_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block body %}
+	<div id="container">
+
+
+		<div id="containerLeft">
+
+            <div id="containerLeft1" style="height:170px;">
+            </div>
+                
+                    <div class="search_icon" style="margin-left:20%; padding:20px; ">
+				        <i class="fa fa-search" style='font-size:35px;color:white; padding:5px;'></i>
+          		        <span style="font-size:18px; margin-left:6px;"> <b>Follow your interests.</b></span>
+        	        </div>
+
+	                <div class="people_icon" style="margin-left:20%; padding:20px;">
+	        	        <i class='fas fa-user-friends' style='font-size:35px;color:white'></i>
+	                    <span style="font-size:18px; margin-left:6px;"><b>Hear what people are talking about.</b></span>
+	                </div>
+
+	                <div class="reply_icon" style="margin-left:20%; padding:20px;">
+	        	        <i class="fa fa-comment-o" style="font-size:35px;color:white"></i>
+	                    <span style="font-size:18px; margin-left:6px;"><b>Join the conversation.</b></span>
+	                </div>
+
+      	</div>
+
+		<div id="containerRight">
+
+            <div style="height:150px;"></div>
+
+            <div id="containerRightMid">
+
+                <div id="containerRightMid1"><i class="fa fa-twitter" align="center" style="font-size:48px;color:#38A1F3;"></i></div>
+                <div id="containerRightMid2"><a href="{{path('login')}}"><button class="button1">Log in</button></a></div>
+			    
+            </div>
+            <div id="tagline"><p><b>See what’s happening in the world right now</b></p></div>
+            <h4 style="margin-top:50px; margin-left:25%;font-size:18px; font-family:Helvetica;"><b>Join Twitter today.</b></h4>
+			<a href="{{path('user_registration')}}"><button class="button2"><b>Sign up</b></button></a>
+            <a href="{{path('login')}}"><button class="button3"><b>Log in</b></button></a>
+		</div>
+
+
+	</div>
+	<div id="menu">
+		<div class="menu-container">
+			<a href="#">About</a>
+			<a href="#">Help Center</a>
+			<a href="#">Blog</a>
+			<a href="#">Status</a>
+			<a href="#">Jobs</a>
+			<a href="#">Terms</a>
+			<a href="#">Privacy Policy</a>
+			<a href="#">cookies</a>
+			<a href="#">Ads info</a>
+			<a href="#">Brand</a>
+			<a href="#">Apps</a>
+			<a href="#">Advertise</a>
+			<a href="#">Marketing</a>
+			<a href="#">Businesses</a>
+			<a href="#">Developers</a>
+			<a href="#">Directory</a>
+			<a href="#">Settings</a>
+			<a href="#">&c 2019 SymfTwitter</a>
+		</div>
+	</div>
+{% endblock %}

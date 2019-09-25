@@ -1,0 +1,368 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile | Twitter{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/update/profile-update.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/post-section.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile-navbar.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/twitter-col3.css') }}"> 
+    <!-- Calender icon for date of join -->
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	<!-- icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- header image crop  -->
+	<link rel="stylesheet" href="{{asset('css/crop-image/croppie.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{asset('css/crop-image/sweetalert.css')}}" rel="stylesheet"/>
+	<link rel="stylesheet" href="{{asset('css/crop-image/style.css')}}" rel="stylesheet"/>
+	<style>
+		input #form_dp{position:fixed;top:-100px;}
+		input #form_header_pic{position:fixed;top:-200px;}
+	</style>
+{% endblock %}
+
+
+{% block body %}
+
+    
+		<div class="navbar" id="main-navbar">
+                
+                <div class="navbar-inner" id="navbar-inner"> 
+                    
+                    <div class="navbar-col1">
+                        <a href="{{ path('twitter') }}">
+                            <i class='fas fa-home' style='font-size:20px; color: #75758a; margin-top: 15px;'></i>
+                            Home
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-flash" style="font-size:20px;color:#75758a; margin-top: 15px;"></i>
+                            Moments
+                        </a>
+                        <a href="#">
+                            <i class='far fa-bell' style='font-size:20px;color:#75758a; margin-top: 15px;'></i>
+                            Notifications
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-envelope-o" style="font-size:20px;color:#75758a; margin-top: 15px;"></i>
+                            Messages
+                        </a>
+                    </div>
+
+
+                    <div class="navbar-col2">
+                        <div class="logo ">
+                           <a href="#"><i class="fa fa-twitter" align="center" style="font-size:35px;color:#38A1F3; margin: 12px;"></i></a> 
+                        </div>
+                    </div>
+
+
+                    <div class="navbar-col3 right-navbar-section">
+                        <div class="profile-navbar-col1">
+                            <div class="search-box-wrapper">
+                                <div class="search-container"></div>
+                                <div class="search-button"></div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="profile-navbar-col2">
+                            <a href=""><div class="user-icon"><object data="uploads/{{user.dp}}"></object></div></a>
+                        </div>
+
+                        <div class="profile-navbar-col3">
+                            <a href="{{path('logout')}}"><button class="tweet-button">Log out</button></a>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+	<div class="wrapper">
+		<div class="profile">
+			<div class="profile-back-top">
+				<div class="header-wall">
+					
+						<object data="uploads/{{user.headerpic}}"></object>
+						<div class="image_alt1">
+							+ <i class="fa fa-image" id="image_alt1" style="font-size:60px;color:#38A1F3"></i>
+						</div>
+
+					
+				</div>
+
+						{# <div class="container">
+							<div class="upload-demo-wrap">
+								<div id="upload-demo"></div>
+							</div>
+							<div class="actions">
+								<a class="btn file-btn">
+									<span>Upload</span>
+									<input type="file" id="upload" value="Choose a file" accept="image/*" />
+								</a>
+								<button class="upload-result">Result</button>
+							</div>
+						</div> #}
+
+
+
+
+			</div>
+			<div class="profile-pic-container">
+				<div class="profile-pic">
+					<object data="uploads/{{user.dp}}"></object>
+					<div class="image_alt2" id="image_alt2">
+							+
+					</div>
+
+						{# <div id="userpic" class="userpic">
+						<div class="js-preview userpic__preview"></div>
+						<div class="btn btn-success js-fileapi-wrapper">
+							<div class="js-browse">
+								<span class="btn-txt">Choose</span>
+								<input type="file" name="filedata">
+							</div>
+							<div class="js-upload" style="display: none;">
+								<div class="progress progress-success"><div class="js-progress bar"></div></div>
+								<span class="btn-txt">Uploading</span>
+							</div>
+						</div>
+						</div> #}
+
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+			</div>
+			<div class="follower-list">
+				<div class="follower-list-inner">
+					<a href="profile">
+						<div class="havor1">
+							<div class="tweets-count">
+								<div class="t-name">Tweets</div>
+								<div class="t-count">{{app.user.posts | length}}</div>
+							</div>
+						</div>
+					</a>
+					<a href="following">
+						<div class="havor2">
+							<div class="following-count">
+								<div class="t-name">Following</div>
+								<div class="t-count">{{app.user.followers | length}}</div>
+							</div>
+						</div>
+					</a>
+					<a href="followers">
+						<div class="havor3">
+							<div class="follower-count">
+								<div class="t-name">Followers</div>
+								<div class="t-count">{{follower | length}}</div>
+							</div>
+						</div>
+					</a>
+					<a href="#">
+						<div class="havor4">
+							<div class="like-count">
+								<div class="t-name">Likes</div>
+								<div class="t-count">254</div>
+							</div>
+						</div>
+					</a>
+					{{ form_start(form) }}
+					<div class="follow">
+						{{ form_widget(form.save) }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="profile-body">
+			<div class="profile-body-col1">
+
+				<div class="profile-update">
+
+					<div class="input-container">
+						<div class="input-label-1">{{ form_label(form.name) }}</div>
+						<div class="input-label-2">{{ form_widget(form.name) }}</div>
+					</div>
+					<div class="input-container">
+						<div class="input-label-1">{{ form_label(form.username) }}</div>
+						<div class="input-label-2">{{ form_widget(form.username) }}</div>
+					</div>
+					<div class="input-container">
+						<div class="input-label-1">{{ form_label(form.bio) }}</div>
+						<div class="input-label-2">{{ form_widget(form.bio) }}</div>
+					</div>
+					<div class="input-container">
+						<div class="input-label-1">{{ form_label(form.website) }}</div>
+						<div class="input-label-2">{{ form_widget(form.website) }}</div>
+					</div>
+					<div class="input-container">
+						<div class="input-label-1">{{ form_label(form.location) }}</div>
+						<div class="input-label-2">{{ form_widget(form.location) }}</div>
+					</div>
+					<div class="input-container">
+						<div class="input-label-1">Date of Birth</div>
+						<div class="input-label-2">{{ form_widget(form.dob) }}</div>
+					</div>
+						{{ form_widget(form.dp) }}
+						{{ form_widget(form.header_pic) }}
+					{{ form_end(form) }}
+				</div>
+			</div>
+			<div class="profile-body-col2">
+				<div class="post-navbar">
+					<div class="tweet-post"><a href="#">Tweets</a></div>
+					<div class="tweet-post"><a href="#">Tweets & replies</a></div>
+					<div class="tweet-post"><a href="#">Media</a></div>
+				</div>
+				{% for post in app.user.posts %}
+					<div class="post-section">
+						<div class="tweet-profile-pic">
+							<div class="profile-pic">
+							{% if app.user.dp %}
+								<object data="uploads/{{app.user.dp}}"></object>
+							{% endif %}
+							</div>
+						</div>
+						<div class="post-article">
+							<div class="post-profile-bar">
+								<div class="post-name"><a href="">{{app.user.name}}</a></div>
+								<div class="post-username">@<a href="">{{app.user.username}}</a></div>
+								<div class="post-date">.<a href=""> {{ post.published| ago }}</a></div>
+								<div class="post-update">
+									<button onclick="myFunction()" class="dropbtn">
+										<i class="fa fa-angle-down" style="font-size:20px;color:grey;"></i>
+									</button>
+									<div id="myDropdown" class="dropdown-content">
+										<button>Share via Direct Message</button>
+										<button>Pin to your profile page</button>
+										<button>Delete Tweet</button>
+									</div>
+								</div>
+							</div>
+							<div class="post-thoghts"><p>{{post.description}}</p></div>
+							{% if post.repost %}
+								<div class="repost-post">
+									<div class="tweet-profile-pic">
+										<div class="profile-pic">
+											<object data="uploads/{{post.repost.user.dp}}"></object>
+										</div>
+									</div>
+									<div class="post-article">
+										<div class="post-profile-bar">
+										<div class="post-name"><a href="{{post.repost.user.username}}">{{post.repost.user.name}}</a></div>
+										<div class="post-username">@<a href="{{post.repost.user.username}}">{{post.repost.user.username}}</a></div>
+										<div class="post-date">.<a href="{{post.repost.user.username}}"> {{ post.repost.published|ago}}</a></div>
+										<div class="post-update">
+											
+										</div>
+										</div>
+										<div class="post-thoghts"><p>{{post.repost.description}}</p></div>
+										{% if  post.repost.attachment %}
+										<span><img  src="uploads/posts/{{post.repost.attachment}}"></span>
+										{% endif %}
+										{% if  post.repost.video %}
+										<span><object  data="uploads/posts/{{ post.repost.video}}"></object></span>
+										{% endif %}
+									</div>
+								</div>
+
+							{% else %}
+								{% if  post.attachment %}
+									<picture><img src="uploads/posts/{{ post.attachment }}"></picture>
+								{% endif %}
+								{% if  post.video %}
+									<picture><object  data="uploads/posts/{{ post.video }}"></object></picture>
+								{% endif %}
+							{% endif %}
+							<div class="post-reviews">
+									<div class="tweet-reply">
+										<button>
+											<i class="fa fa-comment-o" style="font-size:15px;color:grey"></i> 
+											<span style="font-size: 15px;">0</span>
+										</button>
+									</div>
+									<div class="tweet-share">
+										<button>
+											<span><i class="fa fa-retweet" style="font-size:15px;color:grey;"></i>
+											<span style="font-size: 15px;">{{ retweet_count(post.id) | length }}</span>
+										</button>
+									</div>
+									<div class="tweet-likes">
+										{% if check_like(app.user.id, post.id) %}
+											<a href="user/like/{{ post.id }}">
+												<button class="btn btn-default" data-toggle="tooltip" title="Like">
+													<i class="fa fa-heart-o" style="font-size:15px; color:grey;"></i>
+											</a>
+										{% else %}
+											<a href="user/unlike/{{ post.id }}">
+												<button class="btn btn-default" data-toggle="tooltip" title="Like">
+													<i class="fa fa-heart" style="font-size:15px;color:red"></i>
+											</a>
+										{% endif %}
+										{% set like = like_count(post.id) %}
+											<span style="font-size: 15px;">{{ like | length }}</span>
+										</button>
+									</div>
+								</div>
+						</div>
+					</div>
+				{% endfor %}
+				
+			</div>
+			<div class="profile-body-col3">
+				<div class="col3">
+                    <div class="col3-inner">
+                        <div class="heading">Who to follow</div>
+                    	{% for users in user2 %}
+                            {% if app.user.username != users.username %}
+                                {% if followed(users.id, app.user.id) %}
+                                <div class="user-box">
+                                    <div class="user-box-1"><object data="uploads/{{users.dp}}"></object></div>
+                                    <div class="user-box-2">
+                                        <div class="user-name"><a href="">{{users.name}}</a></div>
+                                        <div class="user-username"><a href="">@{{users.username}}</a></div>
+                                    </div>
+                                    <a href="user/follow/{{users.id}}"><div class="user-box-3"><button>Follow</button></div></a>
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		document.getElementById('image_alt2').addEventListener('click',function(){
+			document.getElementById('form_dp').click();
+		});
+	</script>
+	<script>
+		document.getElementById('image_alt1').addEventListener('click',function(){
+			document.getElementById('form_header_pic').click();
+		});
+	</script>
+	<script src="crop-image/jquery.min.js"></script>
+    <script src="crop-image/sweetalert.min.js"></script>
+    <script src="crop-image/croppie.js"></script>
+    <script src="crop-image/script.js"></script>
+    <script src="crop-image/exif.js"></script>
+    <script>
+        CropImage.init();
+    </script>
+	<script href="crop-image/user-pic.js"></script>
+{% endblock %}
+{% block javascripts %}
+	
+{% endblock %}

@@ -1,0 +1,67 @@
+
+.profile-navbar-col1{
+    width: 60%;
+    float: left;
+    height: 100%;
+}
+.profile-navbar-col2{
+    width: 17%;
+    height: 100%;
+    float: left;
+}
+.profile-navbar-col3{
+    width: 23%;
+    height: 100%;
+    float: right;
+    
+}
+.tweet-button {
+    float: right;
+    background-color: #38A1F3;
+    width: 90px;
+    height: 34px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 17px;
+    border-color: #38A1F3;
+    border-width: 0px;
+    font-weight: bold;
+    margin-top: 11px;
+    color: white;
+  }
+  .tweet-button:hover {
+    opacity: 0.8;
+
+}
+.user-icon{
+    float: right;
+    height: 38px;
+    width: 38px;
+    margin: 11px;
+    border-radius: 19px;
+    background-color: rgb(73, 70, 70);
+    background-image: url("profile.png");
+	background-position: center;
+  	background-repeat: no-repeat;
+      background-size: cover;
+      overflow: hidden;
+}
+.user-icon object{
+    height: 100%;
+    width: 100%;
+}
+.search-box-wrapper{
+    height: 34px;
+    width: auto;
+    margin: 11px;
+    border-radius: 22px;
+    background-color: #f0f5fc;
+    border: 1px solid #e1e1e1;
+}
+
+.search-container {
+    width: 160px;
+    height: 100%;
+    float: left;
+}

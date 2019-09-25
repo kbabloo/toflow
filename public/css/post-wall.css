@@ -1,0 +1,100 @@
+.post-now {
+	background-color: #E6EFF5;
+	width: 100%;
+	height: 150px;
+}
+.user-icon-post{
+    float: left;
+    height: 38px;
+    width: 38px;
+    margin: 8px;
+    border-radius: 19px;
+    margin-left: 2%;
+    background-color: rgb(73, 70, 70);
+    background-image: url("profile.png");
+	background-position: center;
+  	background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.user-icon-post object{
+    width: 100%;
+    height: 100%;
+}
+.post-edittor-bar {
+	float: left;
+	margin:8px;
+	height: 88px;
+	width: 85%;
+	background-color: white;
+	border-radius: 6px;
+}
+#post_description{
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    border-color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.file-choose-icon {
+	float: left;
+    height: 35px;
+    width: 35px;
+    border-radius: 6px;
+    margin: 2px;
+    margin-left:6px;
+    
+}
+.file-choose-icon button{
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+#image-alt1:hover{
+cursor: pointer;
+}
+.post-tool-bar{
+	margin-right: 40px;
+	float: right;
+	height: 40px;
+	width: 83%;
+	background-color: #E6EFF5;
+}
+.multi-button {
+	float: right;
+    height: 35px;
+    width: 35px;
+    margin: 2px;
+    border-radius: 17.5px;
+    margin-right: 6px;
+}
+#post_tweet {
+    float: right;
+    background-color: #38A1F3;
+    width: 80px;
+    height: 35px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 23px;
+    border-color: #38A1F3;
+    border-width: 0px;
+    font-weight: bold;
+    margin-top: 2px;
+    opacity: .8;
+  }
+  .all-post{
+  	background-color: white;
+  	width: 100%;
+  }
+  #post_attachment{
+      position: fixed;
+      top: -100px;
+  }
+  #post_video{
+    position: fixed;
+    top: -150px;
+}

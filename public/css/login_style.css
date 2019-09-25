@@ -1,0 +1,128 @@
+body{
+	margin: 0;
+}
+#container:after{
+	content: "";
+	display: table;
+	clear: both;
+	
+}
+#containerLeft{
+	float: left;
+	width: 50%;
+	background-color: #38A1F3;
+	height: 614px;
+	border-top: thin;
+	border-color: black;
+	font-family: Helvetica;
+}
+#containerLeft span{
+	font-size: 22px;
+	color: white;
+}
+#containerRight{
+	float: right;
+	width: 50%;
+}
+
+#menu {
+			background-color: white;
+		  	overflow: hidden;
+		  	width: 100%;
+		}
+		#menu a{
+			font-size: 11px;
+			float: left;
+			color: #a8aaad;
+			text-align: center;
+			padding: 15.5px 13px;
+		
+			font-family:Helvetica;
+		}
+		#menu a:hover {
+  			background-color: #ddd;
+    		color: red;
+        }
+.button1 {
+    background-color:white;
+    border-color: #38A1F3;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 40px;
+    border-width: 1px;
+    font-family:Helvetica;
+  }
+  .button1 a{
+    color: #38A1F3;
+  }
+  .button2 a{
+    color: white;
+  }
+  .button3 a{
+    color: #38A1F3;
+  }
+  .button2 {
+    background-color:#38A1F3;
+    padding: 9px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 30px;
+    border-width: 1px;
+    margin-left: 25%;
+    width: 50%;
+    font-family:Helvetica;
+    color: white;
+    opacity: 0.8;
+  }
+  .button3 {
+    background-color:white;
+    border-color: #38A1F3;
+    padding: 9px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 30px;
+    border-width: 1px;
+    margin-left: 25%;
+    width: 50%;
+    font-family:Helvetica;
+    color: #38A1F3;
+    margin-top: 15px;
+  }
+  .button1:hover {
+    background-color: #eaeef3;
+}
+.button2:hover {
+    opacity: 1.5;
+    filter: alpha(opacity=50);
+    
+}
+.button3:hover {
+    background-color: #eaeef3;
+    
+}
+#containerRightMid:after{
+	content: "";
+	display: table;
+    clear: both;
+}
+#containerRightMid1{
+    float:left;
+    margin-left: 25%;
+}
+#containerRightMid2{
+    float:right;
+    margin-right: 25%;
+}
+#tagline{
+    margin-left: 25%;
+    margin-right: 24%;
+    font-family:Helvetica;
+    font-size: 26px;
+}
+a{
+    text-decoration: none;
+}

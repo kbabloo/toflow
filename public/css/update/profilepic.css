@@ -1,0 +1,39 @@
+input#form_dp{position:fixed;top:-100px;}
+#image_alt{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background-color: rgb(73, 70, 70);
+    background-image: url("profile.png");
+	background-position: center;
+  	background-repeat: no-repeat;
+    background-size: cover;
+    margin: 75px 225px 0px 225px;
+}
+.tw {
+    float: left;
+}
+#image_alt:hover {
+    cursor: pointer;
+}
+.title {
+    padding-left: 4%;
+    float: left;
+}
+.title p{
+    color: grey;
+}
+.next {
+    float: right;
+}
+.next button {
+    width: 90px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #38A1F3;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: 0px;
+    margin: 20px 20px 0px 0px;
+}

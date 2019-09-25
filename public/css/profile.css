@@ -1,0 +1,264 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #eaecf1;
+}
+
+.wrapper{
+	width: 100%;
+	height: auto;
+	padding-bottom: 50px;
+	
+	/* overflow: hidden; */
+}
+
+.profile {
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+.follow button:hover{
+	cursor: pointer;
+}
+.profile-back-top {
+	width: 100%;
+	height: 86%;
+	top: 0;
+	right: 0;
+	left: 0;
+	background-color: #38A1F3;
+	position: absolute;
+	overflow: hidden;
+}
+.header-wall{
+	width: 100%;
+	height: 100%;
+}
+.header-wall object{
+	width: 100%;
+	height: 100%;
+}
+
+.profile-pic-container {
+	top: 54%;
+	left: 7.5%;
+	position: absolute;
+	z-index: 1;
+}
+.profile-pic-container .profile-pic {
+	width: 200px;
+	height: 200px;
+	border-color: white;
+	border-radius: 100px;
+	border: 4px solid white;
+	background-image: url("profile.png");
+	background-color: rgb(73, 70, 70);
+	background-position: center;
+  	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.profile-pic object{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.follower-list {
+	top: 86%;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 15%;
+	background-color: white;
+	position: absolute;
+	box-shadow: 0px 1px grey;
+}
+.follower-list-inner{
+	margin-left: 30%;
+	height: 60px;
+	width: 62.8%;
+}
+.havor1{
+	float: left;
+	width: 80px;
+	height: 60px;
+	background-color:white;
+}
+.havor1:hover{
+	background-color: #38A1F3;
+}
+.havor2{
+	float: left;
+	width: 100px;
+	height: 60px;
+	background-color:white;
+}
+.havor2:hover{
+	background-color: #38A1F3;
+}
+.havor3{
+	float: left;
+	width: 100px;
+	height: 60px;
+	background-color:white;
+}
+.havor3:hover{
+	background-color: #38A1F3;
+}
+.havor4{
+	float: left;
+	width: 80px;
+	height: 60px;
+	background-color:white;
+}
+.havor4:hover{
+	background-color: #38A1F3;
+}
+.follow{
+	float: right;
+	width: 100px;
+	height: 60px;
+	background-color: white;
+}
+.follow button{
+	color: #38A1F3;
+	width: 110px;
+	height: 36px;
+	float: right;
+	margin-top: 13px;
+	border-radius: 18px;
+	font-size: 13px;
+	font-weight: bold;
+	border-color: #38A1F3;
+	background-color: white;
+	border: 1px solid #38A1F3;
+}
+.tweets-count {
+	float: left;
+	height: 56px;
+	width: 100%;
+	font-size: 30px;
+	background-color: white;
+}
+
+.following-count {
+	float: left;
+	height: 56px;
+	width: 100%;
+	background-color: white;
+}
+
+.follower-count {
+	float: left;
+	height: 56px;
+	width: 100px;
+	background-color: white;
+}
+
+.like-count {
+	float: left;
+	height: 56px;
+	width: 100%;
+	background-color: white;
+}
+
+.t-name {
+	font-size: 15px;
+	color: grey;
+	margin-top: 10px;
+	text-align: center;
+}
+.t-count {
+	font-size: 20px;
+	text-align: center;
+	color: grey;
+}
+
+.profile-body {
+	width: 1300px;  
+    height: auto;
+    margin-top: 0px;
+	margin: 10px auto 10px auto;
+	overflow: hidden;
+}
+
+.profile-body-col1 {
+	float: left;
+	width: 23%;
+	height: auto;
+	overflow: hidden;
+}
+
+.profile-body-col2 {
+	float: left;
+	width: 50%;
+	height: auto;
+	overflow: hidden;
+	margin-left: 2%;
+}
+.profile-body-col3 {
+	float: right;
+	width: 23%;
+	height: auto;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.profile-info {
+	padding: 20px;
+}
+.profile-info .name {
+	font-size: 23px;
+	font-weight: bold;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.name a:hover{
+	text-decoration: underline;
+}
+.join-date {
+	color: #798686;
+}
+
+.tweet-to-profile button {
+	width: 100%;
+	height: 36px;
+	border-radius: 18px;
+	border:0px;
+	background-color: #38A1F3;
+}
+.tweet-to-profile {
+	margin-top: 20px;
+    width: auto;
+    border-radius: 18px;
+}
+
+.tweet-to-profile h3{
+	margin-top: 8px;
+	color: white;
+}
+
+.post-navbar {
+	width: 100%;
+	height: 45px;
+	background-color: white;
+}
+.tweet-post {
+	float: left;
+	margin: 9px 20px 5px 10px;
+}
+.tweet-post a{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.tweet-post a:hover{
+	text-decoration: underline;
+}
+
+

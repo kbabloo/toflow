@@ -1,0 +1,279 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile | Twitter{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/post-section.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile-navbar.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/twitter-col3.css') }}"> 
+    <!-- Calender icon for date of join -->
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	<!-- icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+{% endblock %}
+
+{% block body %}
+
+        <div class="navbar" id="main-navbar">
+                
+                <div class="navbar-inner" id="navbar-inner"> 
+                    
+                    <div class="navbar-col1">
+                        <a href="{{ path('twitter') }}">
+                            <i class='fas fa-home' style='font-size:20px; color: #75758a; margin-top: 15px;'></i>
+                            Home
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-flash" style="font-size:20px;color:#75758a; margin-top: 15px;"></i>
+                            Moments
+                        </a>
+                        <a href="#">
+                            <i class='far fa-bell' style='font-size:20px;color:#75758a; margin-top: 15px;'></i>
+                            Notifications
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-envelope-o" style="font-size:20px;color:#75758a; margin-top: 15px;"></i>
+                            Messages
+                        </a>
+                    </div>
+
+
+                    <div class="navbar-col2">
+                        <div class="logo ">
+                           <a href="#"><i class="fa fa-twitter" align="center" style="font-size:35px;color:#38A1F3; margin: 12px;"></i></a> 
+                        </div>
+                    </div>
+
+
+                    <div class="navbar-col3 right-navbar-section">
+                        <div class="profile-navbar-col1">
+                            <div class="search-box-wrapper">
+                                <div class="search-container"></div>
+                                <div class="search-button"></div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="profile-navbar-col2">
+							<a href="profile"><div class="user-icon"> <object data="setting/uploads/{{app.user.dp}}"></object></div></a>
+							{# <div class="dropdown">
+							
+                            <a href="profile"><div class="user-icon"> <object onclick="myFunctionTop()" class="dropbtn-menu" data="setting/uploads/{{app.user.dp}}"></object></div></a>
+								<div id="myDropdown-menu" class="dropdown-content-menu">
+                                    <button>Share via Direct Message</button>
+                                    <button>Pin to your profile page</button>
+                                    <button>Delete Tweet</button>
+                                </div>
+							</div> #}
+						</div>
+
+                        <div class="profile-navbar-col3">
+                            <a href="{{path('logout')}}"><button class="tweet-button">Log out</button></a>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+<div class="wrapper">
+		<div class="profile">
+			<div class="profile-back-top">
+				<div class="header-wall"><object data="setting/uploads/{{userp[0].headerpic}}"></object></div>
+			</div>
+			<div class="profile-pic-container">
+				<div class="profile-pic">
+					<object data="setting/uploads/{{userp[0].dp}}"></object>
+				</div>
+			</div>
+			<div class="follower-list">
+				<div class="follower-list-inner">
+					<a href="#">
+						<div class="havor1">
+							<div class="tweets-count">
+								<div class="t-name">Tweets</div>
+								<div class="t-count">{{userp[0].posts | length}}</div>
+							</div>
+						</div>
+					</a>
+					<a href="#">
+						<div class="havor2">
+							<a href="{{path('following_list')}}">
+							<div class="following-count">
+								<div class="t-name">Following</div>
+								<div class="t-count">{{userp[0].followers | length}}</div>
+							</div>
+							</a>
+						</div>
+					</a>
+					<a href="#">
+						<div class="havor3">
+							<div class="follower-count">
+								<div class="t-name">Followers</div>
+								<div class="t-count">{{ check_follower(userp[0].id) | length }}</div>
+							</div>
+						</div>
+					</a>
+					<a href="#">
+						<div class="havor4">
+							<div class="like-count">
+								<div class="t-name">Likes</div>
+								<div class="t-count">{{ userp[0].ratings | length}}</div>
+							</div>
+						</div>
+					</a>
+					<div class="follow">
+                    {% if followed(userp[0].id, app.user.id) %}
+						<a href="user/follow/{{userp[0].id}}"><button>Follow</button></a>
+                    {% else %}
+						<a href="user/unfollow/{{userp[0].id}}"><button>Unfollow</button></a>
+                    {% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="profile-body">
+			<div class="profile-body-col1">
+				<div class="profile-info">
+					<div class="name"><a href="">{{userp[0].name}}</a></div>
+					<div class="username">@<a href="">{{userp[0].username}}</a></div>
+					<div>
+						<p>{{userp[0].bio}}</p>
+					</div>
+					<div>
+						<p><i class="fa fa-map-marker" style="font-size:20px;color:grey"></i> {{userp[0].location}}</p>
+					</div>
+					<div>
+						<a href="{{userp[0].website}}" target="_blank"><i class="fa fa-external-link" style="font-size:20px;color:grey"></i> {{userp[0].website}}</a>
+					</div>
+					<div>
+						</p><i class="fa fa-birthday-cake" style="font-size:20px;color:grey"></i> Born . {{userp[0].dob | date("F Y")}}</p>
+					</div>
+					<div class="join-date">
+						<i class='far fa-calendar-alt' style='font-size:20px;color:grey'></i> Joined . 
+						<span>{{ userp[0].created | date("F Y")}}</span>
+					</div>
+					<div class="tweet-to-profile"><a href="#"><button><h3 align="center">Tweet to {{userp[0].name}}</h3></button></a></div>
+				</div>
+			</div>
+			<div class="profile-body-col2" id="articles">
+				<div class="post-navbar">
+					<div class="tweet-post"><a href="#">Tweets</a></div>
+					<div class="tweet-post"><a href="#">Tweets & replies</a></div>
+					<div class="tweet-post"><a href="#">Media</a></div>
+				</div>
+				{% for post in userp[0].posts %}
+					<div class="post-section">
+						<div class="tweet-profile-pic">
+							<div class="profile-pic">
+								<object data="setting/uploads/{{userp[0].dp}}"></object>
+							</div>
+						</div>
+						<div class="post-article">
+							<div class="post-profile-bar">
+								<div class="post-name"><a href="{{userp[0].username}}">{{userp[0].name}}</a></div>
+								<div class="post-username">@<a href="{{userp[0].username}}">{{userp[0].username}}</a></div>
+								<div class="post-date">.<a href="{{userp[0].username}}"> {{ post.published | ago }}</a></div>
+								<div class="post-update">
+									
+								</div>
+							</div>
+							<div class="post-thoghts"><p>{{post.description}}</p></div>
+							{% if post.repost %}
+								<div class="repost-post">
+									<div class="tweet-profile-pic">
+										<div class="profile-pic">
+											<object data="setting/uploads/{{post.repost.user.dp}}"></object>
+										</div>
+									</div>
+									<div class="post-article">
+										<div class="post-profile-bar">
+										<div class="post-name"><a href="{{post.repost.user.username}}">{{post.repost.user.name}}</a></div>
+										<div class="post-username">@<a href="{{post.repost.user.username}}">{{post.repost.user.username}}</a></div>
+										<div class="post-date">.<a href="{{post.repost.user.username}}"> {{ post.repost.published|ago}}</a></div>
+										<div class="post-update">
+											
+										</div>
+										</div>
+										<div class="post-thoghts"><p>{{post.repost.description}}</p></div>
+										{% if  post.repost.attachment %}
+										<span><img  src="setting/uploads/posts/{{post.repost.attachment}}"></span>
+										{% endif %}
+										{% if  post.repost.video %}
+										<span><object  data="setting/uploads/posts/{{ post.repost.video}}"></object></span>
+										{% endif %}
+									</div>
+								</div>
+
+							{% else %}
+								{% if  post.attachment %}
+									<picture><img src="setting/uploads/posts/{{ post.attachment }}"></picture>
+								{% endif %}
+								{% if  post.video %}
+									<picture><object  data="setting/uploads/posts/{{ post.video }}"></object></picture>
+								{% endif %}
+							{% endif %}
+							
+							<div class="post-reviews">
+								<div class="tweet-reply">
+										<button>
+											<i class="fa fa-comment-o" style="font-size:15px;color:grey"></i> 
+											<span style="font-size: 15px;">0</span>
+										</button>
+									</div>
+								<div class="tweet-share">
+									<button>
+										<span><i class="fa fa-retweet" style="font-size:15px;color:grey;"></i>
+										<span style="font-size: 15px;">{{ retweet_count(post.id) | length }}</span>
+									</button>
+								</div>
+								<div class="tweet-likes">
+									{% if check_like(app.user.id, post.id) %}
+											<a href="user/like/{{ post.id }}">
+												<button class="btn btn-default" data-toggle="tooltip" title="Like">
+													<i class="fa fa-heart-o" style="font-size:15px; color:grey;"></i>
+											</a>
+										{% else %}
+											<a href="user/unlike/{{ post.id }}">
+												<button class="btn btn-default" data-toggle="tooltip" title="Like">
+													<i class="fa fa-heart" style="font-size:15px;color:red"></i>
+											</a>
+										{% endif %}
+										{% set like = like_count(post.id) %}
+											<span style="font-size: 15px;">{{ like | length }}</span>
+										</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<script src="js/dropdown.js"></script>
+				{% endfor %}
+			</div>
+			<div class="col3">
+                    <div class="col3-inner">
+                        <div class="heading">You might like</div>
+                        {% for users in user2 %}
+                            {% if app.user.username != users.username %}
+                                {% if followed(users.id, app.user.id) %}
+                                <div class="user-box">
+                                    <div class="user-box-1"><object data="setting/uploads/{{users.dp}}"></object></div>
+                                    <div class="user-box-2">
+                                        <div class="user-name"><a href="{{users.username}}">{{users.name}}</a></div>
+                                        <div class="user-username"><a href="{{users.username}}">@{{users.username}}</a></div>
+                                    </div>
+                                    <a href="user/follow/{{users.id}}"><div class="user-box-3"><button>Follow</button></div></a>
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+            </div>
+		</div>
+	</div>
+
+{% endblock %}
+{% block javascripts %}
+	{# <script src="js/post.js"></script> #}
+{% endblock %}

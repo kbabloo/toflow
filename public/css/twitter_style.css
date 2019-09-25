@@ -1,0 +1,47 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper{
+    width: 100%;
+    height: auto;
+    
+    background-color: aqua;
+    padding-bottom: 50px;
+}
+
+.mainbody{
+    width: 1200px;  
+    height: auto;
+    margin: 10px auto 10px auto;
+    overflow: hidden;
+    background-color: white;
+}
+.col1{
+    width: 23%;
+    height: 500px;
+    float: left;
+    background-color: rgb(247, 17, 17);
+}
+.col2{
+    width: 50%;
+    margin-left: 2%;
+    height: 500px;
+    float: left;
+    background-color: rgb(63, 247, 17);
+}
+.col3{
+    width: 23%;
+    height: 500px;
+    float: right;
+    background-color: rgb(228, 38, 25);
+}
+
+.logo{
+    margin: 0 auto 0 auto;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+}

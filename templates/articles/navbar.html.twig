@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block title %}Log Twitter{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile-navbar.css') }}">
+    <!--home icon and notification icon -->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <!--icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block body %}
+    <div class="navbar" id="main-navbar">
+                
+                <div class="navbar-inner" id="navbar-inner"> 
+                    
+                    <div class="navbar-col1">
+                        <a href="#">
+                            <i class='fas fa-home' style='font-size:20px; color: #75758a; margin-top: 15px;'></i>
+                            Home
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-flash" style="font-size:20px;color:#75758a; margin-top: 15px;"></i>
+                            Moments
+                        </a>
+                        <a href="#">
+                            <i class='far fa-bell' style='font-size:20px;color:#75758a; margin-top: 15px;'></i>
+                            Notifications
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-envelope-o" style="font-size:20px;color:#75758a; margin-top: 15px;"></i>
+                            Messages
+                        </a>
+                    </div>
+
+
+                    <div class="navbar-col2">
+                        <div class="logo ">
+                           <a href="#"><i class="fa fa-twitter" align="center" style="font-size:35px;color:#38A1F3; margin: 12px;"></i></a> 
+                        </div>
+                    </div>
+
+
+                    <div class="navbar-col3 right-navbar-section">
+                        <div class="profile-navbar-col1">
+                            <div class="search-box-wrapper">
+                                <div class="search-container"></div>
+                                <div class="search-button"></div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="profile-navbar-col2">
+                            <div class="user-icon"></div>
+                        </div>
+
+                        <div class="profile-navbar-col3">
+                            <button class="tweet-button">Tweet</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+{% endblock %}

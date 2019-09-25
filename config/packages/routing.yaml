@@ -1,0 +1,8 @@
+framework:
+    router:
+        strict_requirements: ~
+        utf8: true
+    # delete_post:
+    #     path:     /post/delete/{id}
+    #     defaults: { _controller: AppBundle:Post:delete }
+    #     methods:  [DELETE]
